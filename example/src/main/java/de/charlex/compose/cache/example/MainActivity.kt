@@ -20,7 +20,6 @@ import de.charlex.settings.datastore.SettingsDataStore
 import de.charlex.settings.datastore.stringPreference
 import kotlinx.coroutines.launch
 
-
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
