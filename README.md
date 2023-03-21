@@ -1,5 +1,5 @@
 # compose-cache
-## Current Compose Version: 1.1.0
+## Current Compose Version: 2.0.0
 
 <a href="https://github.com/Ch4rl3x/compose-cache/actions?query=workflow%3ABuild"><img src="https://github.com/ch4rl3x/compose-cache/actions/workflows/build.yml/badge.svg" alt="Build"></a>
 <a href="https://www.codefactor.io/repository/github/ch4rl3x/compose-cache"><img src="https://www.codefactor.io/repository/github/ch4rl3x/compose-cache/badge" alt="CodeFactor" /></a>
@@ -11,7 +11,7 @@ Add actual compose-cache library:
 
 ```groovy
 dependencies {
-    implementation 'de.charlex.compose:compose-cache:1.0.0'
+    implementation 'de.charlex.compose:compose-cache:2.0.0'
 }
 ```
 
@@ -20,7 +20,7 @@ dependencies {
 `rememberLocalCache` can be used for every value/onValueChange behaviors where race conditions occurs
 
 ```kotlin
-val (value, onValueChange) = rememberLocalCache(valueFromDatabase, saveDebounceMillis = 500) {
+val (value, onValueChange) = rememberForUserInput(valueFromDatabase) {
     //TODO save changed value to database
 }
 TextField(value = value, onValueChange = onValueChange)
