@@ -20,19 +20,21 @@ fun <T> rememberForUserInput(value: T, onValueChange: (T) -> Unit): Pair<T, (T) 
     var dirty by remember { mutableStateOf(false) }
 
     SideEffect {
-        if(value != currentValue && !dirty) {
+        if (value != currentValue && !dirty) {
             // We are getting updates from outside and we are NOT dirty
             currentValue = value
-        } else if(value == currentValue) {
+        } else if (value == currentValue) {
             dirty = false
         } else {
             // Stay on local changes. We are still dirty...
         }
     }
 
-    return currentValue to remember(onValueChange) {{
-        dirty = true
-        currentValue = it
-        onValueChange(it)
-    }}
+    return currentValue to remember(onValueChange) {
+        {
+            dirty = true
+            currentValue = it
+            onValueChange(it)
+        }
+    }
 }
