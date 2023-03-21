@@ -2,15 +2,14 @@
 android {
     kotlinOptions {
         jvmTarget = '1.8'
-        useIR = true
-        freeCompilerArgs += ["-Xopt-in=kotlin.RequiresOptIn"]
     }
+
     buildFeatures {
         compose true
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion "$compose_version"
+        kotlinCompilerExtensionVersion libs.versions.composeCompiler.get()
     }
 }
 
@@ -19,9 +18,14 @@ dependencies {
     /**
      * Compose
      */
-    implementation "androidx.compose.ui:ui:$compose_version"
-    implementation "androidx.compose.foundation:foundation:$compose_version"
-    implementation "androidx.compose.ui:ui-util:$compose_version"
-    implementation "androidx.compose.ui:ui-tooling:$compose_version"
-    implementation "androidx.compose.material:material:$compose_version"
+    implementation platform(libs.androidx.compose.bom)
+
+    implementation libs.androidx.compose.ui.ui
+    implementation libs.androidx.compose.foundation.foundation
+    implementation libs.androidx.compose.ui.util
+    implementation libs.androidx.compose.material.material
+
+    debugImplementation libs.androidx.compose.ui.tooling.tooling
+    debugImplementation libs.androidx.compose.ui.tooling.preview
+
 }

@@ -15,9 +15,10 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import de.charlex.compose.cache.example.theme.SettingsTheme
-import de.charlex.compose.cache.rememberLocalCache
+import de.charlex.compose.cache.rememberForUserInput
 import de.charlex.settings.datastore.SettingsDataStore
 import de.charlex.settings.datastore.stringPreference
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
@@ -46,13 +47,16 @@ fun Body(
                 val coroutineScope = rememberCoroutineScope()
                 val settingsValue by settingsDataStore.get(myPrefKey).collectAsState(initial = myPrefKey.defaultValue)
 
-                val (value, onValueChange) = rememberLocalCache(settingsValue, saveDebounceMillis = 500) {
+                val (value, onValueChange) = rememberForUserInput(settingsValue) {
                     coroutineScope.launch {
+                        delay(250)
                         settingsDataStore.put(myPrefKey, it)
                     }
                 }
-
-                TextField(value = value, onValueChange = onValueChange)
+                TextField(
+                    value = value,
+                    onValueChange = onValueChange
+                )
             }
         }
     }
