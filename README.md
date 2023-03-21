@@ -17,7 +17,7 @@ dependencies {
 
 # How does it work?
 
-`rememberLocalCache` can be used for every value/onValueChange behaviors where race conditions occurs
+`rememberForUserInput` can be used for every value/onValueChange behaviors where race conditions occurs
 
 ```kotlin
 val (value, onValueChange) = rememberForUserInput(valueFromDatabase) {
