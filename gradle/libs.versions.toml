@@ -1,6 +1,6 @@
 [versions]
 
-composeBom = "2023.01.00" # https://developer.android.com/jetpack/compose/bom/bom-mapping
+composeBom = "2023.03.00" # https://developer.android.com/jetpack/compose/bom/bom-mapping
 composeCompiler = "1.4.3" # https://developer.android.com/jetpack/androidx/releases/compose-kotlin
 kotlin = "1.8.10" # https://developer.android.com/jetpack/androidx/releases/compose-kotlin
 
