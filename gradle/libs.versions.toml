@@ -6,7 +6,7 @@ kotlin = "1.8.10" # https://developer.android.com/jetpack/androidx/releases/comp
 
 android_gradle_plugin = "7.4.2"
 android_junit = "1.1.5"
-androidx_activity = "1.6.1"
+androidx_activity = "1.7.0"
 androidx_appcompat = "1.6.1"
 androidx_hilt_navigation_compose_version = "1.0.0"
 androidx_hilt_version = "1.0.0"
