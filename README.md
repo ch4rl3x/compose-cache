@@ -1,6 +1,4 @@
 # compose-cache
-## Current Compose Version: 2.0.0
-
 <a href="https://github.com/Ch4rl3x/compose-cache/actions?query=workflow%3ABuild"><img src="https://github.com/ch4rl3x/compose-cache/actions/workflows/build.yml/badge.svg" alt="Build"></a>
 <a href="https://www.codefactor.io/repository/github/ch4rl3x/compose-cache"><img src="https://www.codefactor.io/repository/github/ch4rl3x/compose-cache/badge" alt="CodeFactor" /></a>
 <a href="https://repo1.maven.org/maven2/de/charlex/compose/compose-cache/"><img src="https://img.shields.io/maven-central/v/de.charlex.compose/compose-cache" alt="Maven Central" /></a>
