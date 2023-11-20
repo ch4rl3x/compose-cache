@@ -20,11 +20,6 @@ dependencies {
      */
     implementation platform(libs.androidx.compose.bom)
 
-    implementation libs.androidx.compose.ui.ui
-    implementation libs.androidx.compose.foundation.foundation
-    implementation libs.androidx.compose.ui.util
-    implementation libs.androidx.compose.material.material
-
     implementation libs.androidx.compose.ui.tooling.tooling
 
 }
