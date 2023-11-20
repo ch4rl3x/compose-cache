@@ -34,11 +34,4 @@ subprojects {
             ktlint("0.42.1")
         }
     }
-
-    repositories {
-        google()
-        mavenCentral()
-    }
-
-
 }

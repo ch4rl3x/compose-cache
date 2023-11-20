@@ -4,7 +4,7 @@ composeBom = "2023.10.01" # https://developer.android.com/jetpack/compose/bom/bo
 composeCompiler = "1.5.4" # https://developer.android.com/jetpack/androidx/releases/compose-kotlin
 kotlin = "1.9.20" # https://developer.android.com/jetpack/androidx/releases/compose-kotlin
 
-android_gradle_plugin = "7.4.2"
+android_gradle_plugin = "8.1.4"
 android_junit = "1.1.5"
 androidx_activity = "1.8.1"
 androidx_appcompat = "1.6.1"
