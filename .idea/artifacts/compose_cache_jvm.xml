@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="compose-cache-jvm">
+    <output-path>$PROJECT_DIR$/compose-cache/build/libs</output-path>
+    <root id="archive" name="compose-cache-jvm.jar">
+      <element id="module-output" name="compose-cache.compose-cache.jvmMain" />
+    </root>
+  </artifact>
+</component>

@@ -1,80 +1,50 @@
 [versions]
 
-composeBom = "2023.10.01" # https://developer.android.com/jetpack/compose/bom/bom-mapping
-composeCompiler = "1.5.4" # https://developer.android.com/jetpack/androidx/releases/compose-kotlin
-kotlin = "1.9.20" # https://developer.android.com/jetpack/androidx/releases/compose-kotlin
+compileSdk = "36"
+targetSdk = "36"
+minSdk = "21"
 
-android_gradle_plugin = "8.1.4"
-android_junit = "1.1.5"
-androidx_activity = "1.8.1"
-androidx_appcompat = "1.6.1"
-androidx_hilt_navigation_compose_version = "1.0.0"
-androidx_hilt_version = "1.0.0"
-androidx_lifecycle = "2.6.2"
-benmanes_versions = "0.44.0"
-chucker = "4.0.0-SNAPSHOT"
-circulartimerangepicker = "2.0.0-SNAPSHOT"
-coil = "2.2.2"
-dataport_barcodescanner = "0.3.0"
-dreservierung = "1.20.6"
-firebase_bom = "31.2.3"
-firebase_crashlytics_gradle = "2.9.4"
-google_services = "4.3.15"
-hamcrest = "2.2"
-hilt_version = "2.44.2"
-htmlText = "1.4.1"
-junit = "4.13.2"
-jwtdecode = "2.0.1"
-kotlinx_coroutines = "1.7.3"
-kotlinx_serialization = "1.5.1"
-lottieVersion = "5.2.0"
-material = "1.10.0"
-moshi = "1.14.0"
-nav_compose_version = "2.5.3"
-okhttp3 = "4.9.3"
-oss_licenses_plugin = "0.10.6"
-paging = "3.1.1"
-paging_compose = "1.0.0-alpha18"
-play_services_oss_licenses = "17.0.1"
-retrofit = "2.9.0"
-revealswipe = "1.1.0"
-robolectric = "4.9"
-room = "2.5.0"
-settings = "1.2.0"
-test_core = "1.5.0"
-triplet_play = "3.7.0"
-versioncatalogupdate = "0.7.0"
-workManager = "2.8.0"
-ciPublish = "0.6.2"
+jvmTarget = "17"
+# https://developer.android.com/build/releases/gradle-plugin#compatibility
+agp = "8.11.2"
+
+#https://github.com/JetBrains/compose-multiplatform
+compose-multiplatform = "1.9.0"
+#https://kotlinlang.org/docs/multiplatform-compatibility-guide.html
+kotlin = "2.2.20"
+# https://github.com/google/ksp
+ksp = "2.2.20-2.0.3"
+
+#https://mvnrepository.com/artifact/org.jetbrains.compose.compiler/compiler
+#composeCompiler = "1.5.8.1"
+
+# https://developer.android.com/jetpack/androidx/releases/activity
+androidxActivity = "1.11.0"
+# https://developer.android.com/jetpack/androidx/releases/appcompat
+androidxAppCompat = "1.7.1"
+coreKtx = "1.17.0"
+
+dokka = "2.0.0"
+nexus-publish-plugin = "2.0.0"
 
 [libraries]
-airbnb-android-lottie-compose = { module = "com.airbnb.android:lottie-compose", version.ref = "lottieVersion" }
-android-gms-oss-licenses-plugin = { module = "com.google.android.gms:oss-licenses-plugin", version.ref = "oss_licenses_plugin" }
-android-gms-play-services-oss-licenses = { module = "com.google.android.gms:play-services-oss-licenses", version.ref = "play_services_oss_licenses" }
-android-material = { module = "com.google.android.material:material", version.ref = "material" }
-android-tools-build-gradle = { module = "com.android.tools.build:gradle", version.ref = "android_gradle_plugin" }
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidxActivity" }
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidxAppCompat" }
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
 
-androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx_activity" }
+# Build logic dependencies
+android-gradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "agp" }
+kotlin-gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+compose-gradlePlugin = { module = "org.jetbrains.compose:compose-gradle-plugin", version.ref = "compose-multiplatform" }
+nexusPublish-gradlePlugin = { module = "io.github.gradle-nexus:publish-plugin", version.ref = "nexus-publish-plugin" }
+dokka-gradlePlugin = { module = "org.jetbrains.dokka:org.jetbrains.dokka.gradle.plugin", version.ref = "dokka" }
 
-androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx_appcompat" }
-
-
-androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "composeBom" }
-androidx-compose-material-material = { module = "androidx.compose.material:material" }
-androidx-compose-foundation-foundation = { module = "androidx.compose.foundation:foundation" }
-androidx-compose-ui-tooling-tooling = { module = "androidx.compose.ui:ui-tooling" }
-androidx-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
-androidx-compose-ui-ui = { module = "androidx.compose.ui:ui" }
-androidx-compose-ui-util = { module = "androidx.compose.ui:ui-util" }
-
-androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidx_lifecycle" }
-
-charlex-settings-datastore-datastore = { module = "de.charlex.settings:settings-datastore", version.ref = "settings" }
-
-
-junit = { module = "junit:junit", version.ref = "junit" }
-kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
-kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
-kotlin-stdlib-jdk8 = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
-kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx_coroutines" }
-kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx_serialization" }
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+kmp = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin"}
+nexusPublish = { id = "io.github.gradle-nexus.publish-plugin", version.ref = "nexus-publish-plugin"}
+dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
