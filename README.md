@@ -9,7 +9,7 @@ Add actual compose-cache library:
 
 ```groovy
 dependencies {
-    implementation 'de.charlex.compose:compose-cache:2.0.0'
+    implementation 'de.charlex.compose:compose-cache:3.0.0'
 }
 ```
 
