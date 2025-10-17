@@ -21,7 +21,7 @@ import javax.inject.Inject
 
 class MavenCentralPublishConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
-        val extension = target.extensions.create(
+        val extension = extensions.create(
             "mavenPublishConfig",
             MavenPublishExtension::class.java
         )
@@ -46,32 +46,34 @@ class MavenCentralPublishConventionPlugin : Plugin<Project> {
         }
 
         extensions.configure<PublishingExtension> {
-            publications.withType<MavenPublication> {
+            publications.withType<MavenPublication>().configureEach {
                 artifact(javadocJar)
                 pom {
-                    name.set(extension.name ?: project.name)
-                    description.set(extension.description ?: project.description)
-                    url.set(extension.url ?: "https://github.com/ch4rl3x/${project.name}")
+                    name.set(project.provider { extension.name ?: project.name })
+                    description.set(project.provider { extension.description ?: project.description })
+                    url.set(project.provider { extension.url ?: "https://github.com/ch4rl3x/${project.name}" })
 
                     licenses {
                         license {
                             name.set("Apache-2.0 License")
                             url.set("https://www.apache.org/licenses/LICENSE-2.0.txt")
                         }
-                        developers {
-                            extension.developers.forEach { dev ->
-                                developer {
-                                    id.set(dev.id)
-                                    name.set(dev.name)
-                                    email.set(dev.email)
-                                }
+                    }
+
+                    developers {
+                        extension.developers.forEach { dev ->
+                            developer {
+                                id.set(dev.id)
+                                name.set(dev.name)
+                                email.set(dev.email)
                             }
                         }
-                        scm {
-                            connection.set(extension.scm.connection)
-                            developerConnection.set(extension.scm.developerConnection)
-                            url.set(extension.scm.url)
-                        }
+                    }
+
+                    scm {
+                        connection.set(project.provider { extension.scm.connection })
+                        developerConnection.set(project.provider { extension.scm.developerConnection })
+                        url.set(project.provider { extension.scm.url })
                     }
                 }
             }
