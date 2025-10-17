@@ -26,16 +26,16 @@ class MavenCentralPublishConventionPlugin : Plugin<Project> {
             MavenPublishExtension::class.java
         )
 
-        with(pluginManager) {
-            apply("maven-publish")
-            apply("signing")
-            apply("org.jetbrains.dokka")
-        }
-
         allprojects {
             extension.group?.let {
                 group = it
             }
+        }
+
+        with(pluginManager) {
+            apply("maven-publish")
+            apply("signing")
+            apply("org.jetbrains.dokka")
         }
 
         extensions.configure<KotlinMultiplatformExtension> {
