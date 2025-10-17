@@ -16,6 +16,7 @@ import org.gradle.plugins.signing.Sign
 import org.gradle.plugins.signing.SigningExtension
 import org.jetbrains.compose.internal.utils.getLocalProperty
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
+import groovy.util.Node
 import javax.inject.Inject
 
 
@@ -58,22 +59,29 @@ class MavenCentralPublishConventionPlugin : Plugin<Project> {
                             name.set("Apache-2.0 License")
                             url.set("https://www.apache.org/licenses/LICENSE-2.0.txt")
                         }
-
-                        developers {
-                            extension.developers.forEach { dev ->
-                                developer {
-                                    id.set(dev.id)
-                                    name.set(dev.name)
-                                    email.set(dev.email)
-                                }
-                            }
-                        }
                     }
 
                     scm {
                         connection.set(project.provider { extension.scm.connection })
                         developerConnection.set(project.provider { extension.scm.developerConnection })
                         url.set(project.provider { extension.scm.url })
+                    }
+
+                    withXml {
+                        if (extension.developers.isNotEmpty()) {
+                            val root = asNode()
+                            // Prüfen ob bereits ein developers-Knoten existiert
+                            val existing = root.children().firstOrNull { child ->
+                                child is Node && child.name() == "developers"
+                            } as Node?
+                            val devsNode = existing ?: root.appendNode("developers")
+                            extension.developers.forEach { dev ->
+                                val devNode = devsNode.appendNode("developer")
+                                dev.id?.let { devNode.appendNode("id", it) }
+                                dev.name?.let { devNode.appendNode("name", it) }
+                                dev.email?.let { devNode.appendNode("email", it) }
+                            }
+                        }
                     }
                 }
             }
