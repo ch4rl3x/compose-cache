@@ -58,14 +58,14 @@ class MavenCentralPublishConventionPlugin : Plugin<Project> {
                             name.set("Apache-2.0 License")
                             url.set("https://www.apache.org/licenses/LICENSE-2.0.txt")
                         }
-                    }
 
-                    developers {
-                        extension.developers.forEach { dev ->
-                            developer {
-                                id.set(dev.id)
-                                name.set(dev.name)
-                                email.set(dev.email)
+                        developers {
+                            extension.developers.forEach { dev ->
+                                developer {
+                                    id.set(dev.id)
+                                    name.set(dev.name)
+                                    email.set(dev.email)
+                                }
                             }
                         }
                     }
