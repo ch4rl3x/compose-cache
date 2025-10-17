@@ -26,10 +26,8 @@ class MavenCentralPublishConventionPlugin : Plugin<Project> {
             MavenPublishExtension::class.java
         )
 
-        allprojects {
-            extension.group?.let {
-                group = it
-            }
+        extension.group?.let {
+            group = it
         }
 
         with(pluginManager) {
