@@ -37,9 +37,7 @@ Once the external source emits the same value that the user typed, the dirty fla
 👉 This means the UI stays responsive, and your database stays the single source of truth — without flicker or cursor issues.
 
 
-
-
-## Add to your project
+## Dependency
 
 Add actual compose-cache library:
 
