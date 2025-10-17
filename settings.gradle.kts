@@ -9,7 +9,7 @@ pluginManagement {
 }
 
 plugins {
-    id 'org.gradle.toolchains.foojay-resolver-convention' version '1.0.0'
+    id("org.gradle.toolchains.foojay-resolver-convention").version("1.0.0")
 }
 
 dependencyResolutionManagement {
@@ -21,7 +21,7 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "compose-cache"
-include ':compose-cache'
-include ':example'
+include(":compose-cache")
+include(":example")
 
 //enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
