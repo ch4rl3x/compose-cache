@@ -4,7 +4,7 @@
 
 # compose-cache
 
-compose-cache is a lightweight utility for Jetpack Compose that helps you handle two-way state synchronization between UI and external sources (e.g. databases, flows) — without suffering from cursor jumps or overwritten user input.
+`compose-cache` is a lightweight utility for Jetpack Compose that helps you handle two-way state synchronization between UI and external sources (e.g. databases, flows) — without suffering from cursor jumps or overwritten user input.
 
 > [!NOTE]  
 > 🚀 RevealSwipe is now Compose Multiplatform
