@@ -9,6 +9,7 @@ plugins {
 
 mavenPublishConfig {
     name = "compose-cache"
+    group = "de.charlex.compose"
     description = "A lightweight Jetpack Compose utility that buffers user input locally until the backing state catches up — preventing cursor jumps and lost text when syncing with databases or flows."
     url = "https://github.com/ch4rl3x/compose-cache"
 

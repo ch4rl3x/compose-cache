@@ -32,6 +32,12 @@ class MavenCentralPublishConventionPlugin : Plugin<Project> {
             apply("org.jetbrains.dokka")
         }
 
+        allprojects {
+            extension.group?.let {
+                group = it
+            }
+        }
+
         extensions.configure<KotlinMultiplatformExtension> {
             if (pluginManager.hasPlugin("com.android.library")) {
                 androidTarget {
@@ -104,6 +110,8 @@ abstract class MavenPublishExtension @Inject constructor(objects: ObjectFactory)
         get() = nameProperty.orNull
         set(value) = nameProperty.set(value)
     private val nameProperty: Property<String> = objects.property(String::class.java)
+
+    var group: String? = null // <-- neu
 
     var description: String?
         get() = descriptionProperty.orNull
