@@ -26,10 +26,6 @@ class MavenCentralPublishConventionPlugin : Plugin<Project> {
             MavenPublishExtension::class.java
         )
 
-        extension.group?.let {
-            group = it
-        }
-
         with(pluginManager) {
             apply("maven-publish")
             apply("signing")
@@ -108,8 +104,6 @@ abstract class MavenPublishExtension @Inject constructor(objects: ObjectFactory)
         get() = nameProperty.orNull
         set(value) = nameProperty.set(value)
     private val nameProperty: Property<String> = objects.property(String::class.java)
-
-    var group: String? = null // <-- neu
 
     var description: String?
         get() = descriptionProperty.orNull
